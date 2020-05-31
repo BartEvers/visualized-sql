@@ -1,0 +1,108 @@
+@import "../config";
+
+.query {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  padding: 0 8px;
+
+  .bracket {
+    position: relative;
+    border: none !important;
+
+    margin-top: -6px;
+    padding: 8px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 6px;
+      border: 2px solid black;
+      border-right: none;
+      content: " ";
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 6px;
+      border: 2px solid black;
+      border-left: none;
+      content: " ";
+    }
+  }
+
+  .box {
+    border: 2px solid black;
+    margin: 0 8px 0 -8px;
+    padding: 8px;
+  }
+
+  .mb-1 {
+    margin-bottom: 8px;
+  }
+
+  .mb-2 {
+    margin-bottom: 12px;
+  }
+
+  .mr-0 {
+    margin-right: 0 !important;
+  }
+
+  .line {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .clause {
+    font-family: Menlo, monospace;
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: bold;
+
+    &.half {
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+
+  .var {
+    display: inline-block;
+
+    font-family: serif;
+    font-style: italic;
+    font-size: 16px;
+    padding: 4px 8px 5px;
+
+    border-radius: 6px;
+
+    border: 1.6px dashed #333;
+  }
+
+  .info {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .clause,
+  .var {
+    margin-right: 16px;
+  }
+}
