@@ -45,7 +45,7 @@ const data = {
       leftJoin: true
     },
     {
-      left: [4, "Rein", "Codaisseur teacher"],
+      left: [4, "Tim", "Gillz developer"],
       right: [
         [
           5,
