@@ -1,0 +1,366 @@
+html {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+nav {
+  margin-right: 70px;
+}
+nav ul {
+  margin: 0 16px;
+  padding: 0;
+  display: flex;
+}
+nav li {
+  display: block;
+}
+nav a {
+  display: block;
+  padding: 4px 8px;
+  outline: none;
+  text-decoration: none;
+  color: black;
+}
+nav a:hover {
+  background: #eee;
+}
+nav a.active {
+  background: #333;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 8px 16px;
+  overflow: hidden;
+}
+
+h1 {
+  margin: 0 0 8px 0;
+  line-height: 40px;
+}
+
+ul,
+li,
+p {
+  margin: 0 0 16px 0;
+}
+
+ul {
+  padding-left: 32px;
+}
+.tutorial {
+  width: 1000px;
+}
+
+pre.sql {
+  margin: 0 0 16px 0;
+  font-family: Menlo, monospace;
+  font-size: 14px;
+}
+pre.sql .highlight {
+  font-weight: bold;
+}
+
+button.step {
+  display: inline-block;
+  background: white;
+  border: 2px solid #eee;
+  margin: 0 2px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: serif;
+}
+button.step:hover {
+  border-color: #aaa;
+}
+button.step.active {
+  border-color: black;
+  font-weight: bold;
+}
+button.step:focus {
+  background: #eee;
+}
+
+.explanation {
+  display: flex;
+}
+.explanation .col {
+  width: 50%;
+}
+.explanation .col.left {
+  padding-right: 8px;
+}
+.explanation .col.right {
+  padding-left: 8px;
+}
+.explanation .text {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.error {
+  color: #e62d34;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.viz {
+  margin: 0 0 16px 0;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+span {
+  transition: opacity 0.2s ease;
+}
+
+.excluded {
+  opacity: 0.2;
+}
+
+.join {
+  display: flex;
+  position: relative;
+  transition: opacity 0.2s ease, margin 0.2s ease, padding 0.2s ease, border 0.2s ease;
+}
+.data .join {
+  border: 0 solid transparent;
+  border-radius: 8px;
+}
+.grouped-enter .data .join, .grouped-enter-done .data .join {
+  padding: 2px 6px 6px 6px;
+  border: 2px dashed #666;
+  background: #f5f5f5;
+}
+.grouped-enter .data .join:not(:last-child), .grouped-enter-done .data .join:not(:last-child) {
+  margin-bottom: 24px;
+}
+.join .right {
+  margin-left: 4px;
+  opacity: 0;
+  position: relative;
+  left: 20px;
+  transition: left 0.2s ease, opacity 0.2s ease;
+}
+.joined-enter .join .right, .joined-enter-done .join .right {
+  opacity: 1;
+  left: 0;
+}
+
+.mark {
+  position: absolute;
+  z-index: 12;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  background: transparent;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.mark-enter,
+.mark-enter-done,
+.mark-appear,
+.mark-appear-done {
+  width: 100%;
+  width: calc(100% + 2px);
+}
+.mark-enter, .mark-enter.blue,
+.mark-enter-done,
+.mark-enter-done.blue,
+.mark-appear,
+.mark-appear.blue,
+.mark-appear-done,
+.mark-appear-done.blue {
+  background: rgba(22, 177, 238, 0.4);
+  border-color: #16b1ee;
+}
+.mark-enter.color-id-1,
+.mark-enter-done.color-id-1,
+.mark-appear.color-id-1,
+.mark-appear-done.color-id-1 {
+  background: rgba(27, 70, 212, 0.4);
+  border-color: #1b46d4;
+}
+.mark-enter.color-id-2,
+.mark-enter-done.color-id-2,
+.mark-appear.color-id-2,
+.mark-appear-done.color-id-2 {
+  background: rgba(22, 207, 93, 0.4);
+  border-color: #16cf5d;
+}
+.mark-enter.color-id-4,
+.mark-enter-done.color-id-4,
+.mark-appear.color-id-4,
+.mark-appear-done.color-id-4 {
+  background: rgba(202, 22, 238, 0.4);
+  border-color: #ca16ee;
+}
+.mark-enter.red,
+.mark-enter-done.red,
+.mark-appear.red,
+.mark-appear-done.red {
+  background: rgba(230, 45, 52, 0.4);
+  border-color: #e62d34;
+}
+
+.mark-exit,
+.mark-exit-done {
+  transition: none;
+}
+
+.excluded .right {
+  display: none;
+}
+
+.data .left .row:nth-child(n+2) {
+  opacity: 0;
+  position: relative;
+  top: -10px;
+  transition: top 0.2s ease, opacity 0.2s ease;
+}
+.joined-enter .data .left .row:nth-child(n+2), .joined-enter-done .data .left .row:nth-child(n+2) {
+  opacity: 1;
+  top: 0;
+}
+
+.row {
+  margin-top: 4px;
+  display: flex;
+  height: 32px;
+  border: 1px solid transparent;
+  position: relative;
+  background: white;
+}
+.data .row {
+  border-color: #333;
+}
+.excluded .row {
+  border-style: dashed;
+}
+.header .row {
+  font-weight: bold;
+}
+
+.cell {
+  padding: 4px 6px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+.data .cell:not(:last-child) {
+  border-right: 1px solid #ddd;
+}
+
+.null {
+  font-family: Menlo, monospace;
+  font-size: 0.7rem;
+}
+.query {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 8px;
+}
+.query .bracket {
+  position: relative;
+  border: none !important;
+  margin-top: -6px;
+  padding: 8px;
+}
+.query .bracket::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 6px;
+  border: 2px solid black;
+  border-right: none;
+  content: " ";
+}
+.query .bracket::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 6px;
+  border: 2px solid black;
+  border-left: none;
+  content: " ";
+}
+.query .box {
+  border: 2px solid black;
+  margin: 0 8px 0 -8px;
+  padding: 8px;
+}
+.query .mb-1 {
+  margin-bottom: 8px;
+}
+.query .mb-2 {
+  margin-bottom: 12px;
+}
+.query .mr-0 {
+  margin-right: 0 !important;
+}
+.query .line {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.query .stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.query .clause {
+  font-family: Menlo, monospace;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: bold;
+}
+.query .clause.half {
+  font-size: 14px;
+  line-height: 14px;
+}
+.query .var {
+  display: inline-block;
+  font-family: serif;
+  font-style: italic;
+  font-size: 16px;
+  padding: 4px 8px 5px;
+  border-radius: 6px;
+  border: 1.6px dashed #333;
+}
+.query .info {
+  font-size: 12px;
+  line-height: 14px;
+}
+.query .clause,
+.query .var {
+  margin-right: 16px;
+}
+
+/*# sourceMappingURL=/src.78399e21.css.map */
